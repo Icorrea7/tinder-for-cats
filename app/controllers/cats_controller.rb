@@ -13,7 +13,8 @@ class CatsController < ApplicationController
       :last_name,
       :email,
       :phone,
-      :status
+      :status,
+      images: []
     )
   end
 end
