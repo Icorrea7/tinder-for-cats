@@ -3,7 +3,7 @@ class Cat < ApplicationRecord
 
   enum status: [:single, :open_relationship, :just_friendship]
 
-  has_one_attached :avatar
+  has_one_attached :avatar, dependent: :destroy
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: { case_sensitive: false }

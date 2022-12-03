@@ -2,6 +2,7 @@ class CatsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
+    @cats = Cat.all
   end
 
   def show
@@ -13,6 +14,13 @@ class CatsController < ApplicationController
   def create
     @cat = Cat.new(cats_params)
     @cat.save
+  end
+
+  def destroy
+    @cat = Cat.find(params[:id])
+    @cat.destroy
+
+    redirect_to cats_path
   end
 
   private

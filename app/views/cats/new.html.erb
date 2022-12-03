@@ -42,7 +42,6 @@
               <%= form.select :status, options_for_select(Cat.statuses.keys.map{ |key| [key.humanize, key] }, selected: 'single'), {}, { :class => 'rounded-md border-gray-300 text-indigo-600 focus:ring-indigo-500' } %>
             </div>
           </fieldset>
-
           <div>
             <label class="block text-sm font-medium text-gray-700">Cover photo</label>
             <div class="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
