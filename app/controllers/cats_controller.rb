@@ -24,7 +24,7 @@ class CatsController < ApplicationController
       :email,
       :phone,
       :status,
-      images: []
+      :avatar
     )
   end
 end
