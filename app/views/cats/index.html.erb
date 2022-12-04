@@ -1,33 +1,33 @@
 <div class="container mx-auto my-8">
-  <h1 class="text-violet-800 font-medium">
-    Tinder for kittens
-  </h1>
+  <div class="flex justify-between items-center w-full">
+    <h1 class="text-violet-800 font-medium text-4xl">
+      Tinder for kittens
+    </h1>
+    <%= link_to '+ New Cat', new_cat_path, class: "rounded-full bg-violet-300 text-violet-700 focus:outline-none text-sm px-4 py-2 cursor-pointer" %>
+  </div>
   <div class="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 gap-y-4 mt-12">
     <% @cats.each do |cat| %>
       <div class="rounded-lg border border-gray-300 w-full h-full">
-      <div class="md:col-span-3 aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
-        <% if cat.avatar.attached? %>
-          <img src="<%= url_for(cat.avatar) %>" alt="Two each of gray, white, and black shirts laying flat." class="h-full w-full object-cover object-center">
-        <% end %>
-      </div>
-      <div class="md:col-span-2 bg-white mx-5 flex flex-col items-center justify-center py-5">
-        <p class="text-violet-800 text-lg">
-          <%= cat.name %> <%= cat.last_name %>
-        </p>
-        <p class="text-gray-700 mt-2 text-sm">
-          <%= cat.status %>
-        </p>
-        <p class="text-gray-700 mt-2 text-sm">
-          <%= cat.email %>
-        </p>
-        <div class="flex justify-between items-center mt-4 w-1/2 mx-auto">
-          <button class="rounded-full bg-violet-800 text-white focus:outline-none text-sm px-4">
-            Like
-          </button>
-          <%= button_to 'Eliminar', cat_path(cat), method: :delete, data: { confirm: 'Are you sure?' }, class: "rounded-full bg-gray-300 text-white focus:outline-none text-sm px-4" %>
+        <div class="md:col-span-3 aspect-w-3 aspect-h-2 overflow-hidden rounded-lg">
+          <% if cat.avatar.attached? %>
+            <img src="<%= url_for(cat.avatar) %>" alt="Cat avatar" class="h-full w-full object-cover object-center">
+          <% end %>
+        </div>
+        <div class="md:col-span-2 bg-white mx-5 flex flex-col items-center justify-center py-5">
+          <p class="text-violet-800 text-lg">
+            <%= cat.name %> <%= cat.last_name %>
+          </p>
+          <% if cat.status.present? %>
+            <p class="text-gray-700 mt-2 text-sm">
+              <%= cat.status.humanize %>
+            </p>
+          <% end %>
+          <div class="flex justify-between items-center mt-4 w-1/2 mx-auto">
+            <%= link_to 'Like', cat_path(cat), class: "rounded-full bg-violet-300 text-violet-700 focus:outline-none text-sm px-4 py-2 cursor-pointer" %>
+            <%= button_to 'Dislike', cat_path(cat), method: :delete, data: { confirm: 'Are you sure?' }, class: "rounded-full bg-orange-200 text-orange-600 text-white focus:outline-none text-sm px-4 py-2 cursor-pointer" %>
+          </div>
         </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>

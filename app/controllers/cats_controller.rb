@@ -1,4 +1,5 @@
 class CatsController < ApplicationController
+  before_action :set_cat, only: [:show, :destroy]
   skip_before_action :verify_authenticity_token
 
   def index
@@ -14,10 +15,11 @@ class CatsController < ApplicationController
   def create
     @cat = Cat.new(cats_params)
     @cat.save
+
+    redirect_to cats_path
   end
 
   def destroy
-    @cat = Cat.find(params[:id])
     @cat.destroy
 
     redirect_to cats_path
@@ -34,5 +36,9 @@ class CatsController < ApplicationController
       :status,
       :avatar
     )
+  end
+
+  def set_cat
+    @cat = Cat.find(params[:id])
   end
 end
