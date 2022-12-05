@@ -11,6 +11,10 @@ RSpec.describe Cat, type: :model do
     it { is_expected.to allow_value("single", "open_relationship").for(:status) }
   end
 
+  describe "ActiveRecord associations" do
+    it { should have_many(:cat_versions) }
+  end
+
   context "Create a cat" do
     let(:cat) { create(:cat, name: "felix", last_name: "gato", phone: 658987, status: :single, email: "felix9@gato.com") }
 
