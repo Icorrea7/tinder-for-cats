@@ -1,24 +1,20 @@
-# README
+# Tinder for Cats  🐈
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Actually It's not a tinder, it's just a kittens blog, but more creative ✨
 
-Things you may want to cover:
+# Requirements
+- Ruby `2.6.4`
+- Rails `6.0.6`
+- Node `8.1.2`
 
-* Ruby version
+# How to run
+1. Clone the repo and run it locally  via
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Start rails:
+    ```bash
+    .bin/dev
+    ```
+    or 
+        ```bash
+    bundle exec rails server
+    ```
