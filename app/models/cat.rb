@@ -16,7 +16,7 @@ class Cat < ApplicationRecord
     new_version = Hash.new
 
     self.previous_changes.each do |key, changes|
-      next if key == ("updated_at" || "created_at")
+      next if key == ("updated_at" || "created_at" || "id")
       new_version[key] = changes.last
     end
 

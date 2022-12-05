@@ -1,5 +1,5 @@
 class CatsController < ApplicationController
-  before_action :require_cat, only: [:show, :destroy]
+  before_action :require_cat, only: [:show, :destroy, :update, :edit]
   skip_before_action :verify_authenticity_token
 
   def index
@@ -10,6 +10,7 @@ class CatsController < ApplicationController
   end
 
   def new
+    @cat = Cat.new
   end
 
   def create
@@ -17,6 +18,14 @@ class CatsController < ApplicationController
     @cat.save
 
     redirect_to cats_path
+  end
+
+  def edit
+  end
+
+  def update
+    @cat.update(cats_params)
+    redirect_to cat_path(@cat.id)
   end
 
   def destroy
@@ -27,7 +36,7 @@ class CatsController < ApplicationController
 
   private
   def cats_params
-    params.permit(
+    params.require(:cat).permit(
       :id,
       :name,
       :last_name,

@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  resources :cats, only: [:new, :index, :show, :destroy, :create]
+  resources :cats
   root to: 'cats#index'
 end
