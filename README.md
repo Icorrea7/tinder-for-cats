@@ -14,7 +14,7 @@ Actually It's not a tinder, it's just a kittens blog, but more creative ✨
     ```bash
     .bin/dev
     ```
-    or 
-        ```bash
+- or:
+    ```bash
     bundle exec rails server
     ```
