@@ -1,5 +1,5 @@
 class CatsController < ApplicationController
-  before_action :set_cat, only: [:show, :destroy]
+  before_action :require_cat, only: [:show, :destroy]
   skip_before_action :verify_authenticity_token
 
   def index
@@ -38,7 +38,13 @@ class CatsController < ApplicationController
     )
   end
 
-  def set_cat
-    @cat = Cat.find(params[:id])
+  def current_cat
+    @cat = Cat.find_by(id: params[:id])
+  end
+
+  def require_cat
+    if current_cat.blank?
+      return render json: { message: "Cat not found" }, status: :not_found
+    end
   end
 end

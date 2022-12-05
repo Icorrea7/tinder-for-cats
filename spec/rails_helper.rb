@@ -6,6 +6,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require "rspec/rails"
 require "spec_helper"
 require 'support/factory_bot'
+require 'rails-controller-testing'
 
 if ENV["RAILS_ENV"] == "test"
   ENV["JWT_SECRET"] = "mysecret"
@@ -87,6 +88,7 @@ RSpec.configure do |config|
   # config.after(:all) { Percy::Capybara.finalize_build }
 
   # devise and controller helpers
+  Rails::Controller::Testing.install
 end
 
 Shoulda::Matchers.configure do |config|

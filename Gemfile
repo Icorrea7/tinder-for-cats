@@ -43,6 +43,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'factory_bot_rails'
   gem "faker"
+  gem "rails-controller-testing"
 end
 
 group :test do
