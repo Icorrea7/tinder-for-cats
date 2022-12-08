@@ -69,5 +69,15 @@ RSpec.describe Cat, type: :model do
         expect(cat.email).to eq("figaro@gato.com")
       end
     end
+
+    describe "should create a CatVersion record" do
+      it "updates cat params and create a version" do
+        new_params = { name: "Michi", email: "michi@gato.com" }
+        cat.update!(new_params)
+
+        expect(CatVersion.last.name).to eq("Michi")
+        expect(CatVersion.last.email).to eq("michi@gato.com")
+      end
+    end
   end
 end

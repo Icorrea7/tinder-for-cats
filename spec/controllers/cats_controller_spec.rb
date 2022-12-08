@@ -30,15 +30,23 @@ describe CatsController do
 
   describe "#create" do
     it "creates a successful a new cat" do
-      params = { name: "gatito", last_name: "gato", status: :single, email: "gatito@gato.com" }
-      cat = Cat.create(params)
+      params = {
+        cat: {
+          name: "gatito",
+          last_name: "gato",
+          status: :single,
+          email: "gatito@gato.com"
+        }
+      }
+      post :create, params: params
 
-      expect(cat).to be_an_instance_of(Cat)
-      expect(cat.id).to be_present
+      expect(Cat.last.name).to eq("gatito")
+      expect(Cat.last.id).to be_present
     end
 
     it "render error creating a new cat" do
-      post :create, body: {}
+      params = { cat: { name: "gatito" } }
+      post :create, params: params
 
       expect(response).to have_http_status(302)
     end

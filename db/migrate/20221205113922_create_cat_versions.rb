@@ -6,7 +6,7 @@ class CreateCatVersions < ActiveRecord::Migration[6.0]
       t.string :email
       t.string :phone
       t.integer :status
-      t.references :cat
+      t.references :cat, index: true, foreign_key: true
 
       t.datetime :created_at, null: false
     end

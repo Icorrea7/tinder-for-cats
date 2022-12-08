@@ -1,15 +1,18 @@
-<div class="md:grid md:grid-cols-3 md:gap-6 mt-16">
-  <div class="md:col-span-1">
-    <div class="px-4 sm:px-0">
-      <h3 class="text-lg font-medium leading-6 text-gray-900">
-        Profile
-      </h3>
-      <p class="mt-1 text-sm text-gray-600">
-        Edit your profile
-      </p>
+<div class="container mx-auto max-w-screen-lg max-h-screen my-8">
+  <%= link_to '<- More Cats', cats_path, class: "text-violet-700 focus:outline-none text-sm py-2 cursor-pointer" %>
+  <div class="md:grid md:grid-cols-3 md:gap-6 mt-16">
+    <div class="md:col-span-1">
+      <div class="px-4 sm:px-0">
+        <h3 class="text-lg font-medium leading-6 text-gray-900">
+          Profile
+        </h3>
+        <p class="mt-1 text-sm text-gray-600">
+          Edit your profile
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="mt-5 md:col-span-2 md:mt-0">
-    <%= render "form" %>
+    <div class="mt-5 md:col-span-2 md:mt-0">
+      <%= render "form" %>
+    </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 class Cat < ApplicationRecord
   before_save { self.email = email.downcase }
-  after_commit :send_changes_to_version_history, if: :persisted?
+  after_commit :send_changes_to_version_history, on: :update, if: :persisted?
 
   has_one_attached :avatar, dependent: :destroy
   has_many :cat_versions, dependent: :destroy

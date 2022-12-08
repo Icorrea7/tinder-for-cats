@@ -1,6 +1,5 @@
 class CatsController < ApplicationController
   before_action :require_cat, only: [:show, :destroy, :update, :edit]
-  skip_before_action :verify_authenticity_token
 
   def index
     @cats = Cat.all
@@ -35,6 +34,7 @@ class CatsController < ApplicationController
   end
 
   private
+
   def cats_params
     params.require(:cat).permit(
       :id,
